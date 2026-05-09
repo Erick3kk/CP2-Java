@@ -1,4 +1,5 @@
-# CP2 – API de Brinquedos
+# CP2 – API de Brinquedos 
+
 ---
 
 ## Descrição
@@ -11,6 +12,12 @@ Desenvolvida com Spring Boot + JPA + Oracle, rodando na porta 8080.
 - Java 21 | Spring Boot 4.0.6 | Maven
 - Spring Web, Spring Data JPA, Validation, Lombok
 - Oracle JDBC | Tomcat (porta 8080)
+
+---
+
+## Configuração do Spring Initializr
+
+![Spring Initializr](imagens/Spring Initializer Configuracao.png)
 
 ---
 
@@ -34,10 +41,13 @@ Desenvolvida com Spring Boot + JPA + Oracle, rodando na porta 8080.
 
 ---
 
-### POST – Criar brinquedos
-**URL:** `http://localhost:8080/brinquedos` | **Método:** POST
+## Testes no Postman
 
-**Brinquedo 1**
+---
+
+### POST – Criar brinquedo
+**URL:** `http://localhost:8080/brinquedos` | **Método:** POST  
+
 ```json
 {
   "nome": "LEGO Batman",
@@ -48,7 +58,6 @@ Desenvolvida com Spring Boot + JPA + Oracle, rodando na porta 8080.
 }
 ```
 
-**Brinquedo 2**
 ```json
 {
   "nome": "Barbie Fashionista",
@@ -59,7 +68,6 @@ Desenvolvida com Spring Boot + JPA + Oracle, rodando na porta 8080.
 }
 ```
 
-**Brinquedo 3**
 ```json
 {
   "nome": "Hot Wheels Pista Radical",
@@ -70,7 +78,6 @@ Desenvolvida com Spring Boot + JPA + Oracle, rodando na porta 8080.
 }
 ```
 
-**Brinquedo 4**
 ```json
 {
   "nome": "Quebra-Cabeça 500 Peças",
@@ -81,57 +88,34 @@ Desenvolvida com Spring Boot + JPA + Oracle, rodando na porta 8080.
 }
 ```
 
+**Resposta (HTTP 201 Created):**
 
-
-**Resposta esperada (HTTP 201 Created):**
-```json
-{
-  "id": 1,
-  "nome": "LEGO Batman",
-  "tipo": "Montar",
-  "classificacao": "6+",
-  "tamanho": "Médio",
-  "preco": 149.90
-}
-```
+![POST Criar](imagens/post-criar.png)
 
 ---
 
 ### GET – Listar todos
 **URL:** `http://localhost:8080/brinquedos` | **Método:** GET
 
-**Resposta esperada (HTTP 200 OK):**
+**Resposta (HTTP 200 OK):**
+
+![GET Listar Todos](imagens/get-listar-todos.png)
 
 ---
 
 ### GET – Buscar por ID
 **URL:** `http://localhost:8080/brinquedos/1` | **Método:** GET
 
-**Resposta esperada (HTTP 200 OK):**
-```json
-{
-  "id": 1,
-  "nome": "LEGO City Polícia",
-  "tipo": "Montar",
-  "classificacao": "6+",
-  "tamanho": "Médio",
-  "preco": 149.90
-}
-```
+**Resposta (HTTP 200 OK):**
 
-**Se o ID não existir (HTTP 404):**
-```json
-{
-  "erro": "Brinquedo com ID 99 não encontrado."
-}
-```
+![GET Buscar por ID](imagens/get-buscar-id.png)
 
 ---
 
 ### PUT – Atualizar brinquedo
-**URL:** `http://localhost:8080/brinquedos/1` | **Método:** PUT
+**URL:** `http://localhost:8080/brinquedos/1` | **Método:** PUT  
+**Body → raw → JSON**
 
-**Atualização do Brinquedo 1:**
 ```json
 {
   "nome": "LEGO Batman Deluxe",
@@ -142,69 +126,30 @@ Desenvolvida com Spring Boot + JPA + Oracle, rodando na porta 8080.
 }
 ```
 
-**Atualização do Brinquedo 2:**
-```json
-{
-  "nome": "Barbie Profissões Médica",
-  "tipo": "Boneca",
-  "classificacao": "4+",
-  "tamanho": "Pequeno",
-  "preco": 109.90
-}
-```
+**Resposta (HTTP 200 OK):**
 
-**Atualização do Brinquedo 3:**
-```json
-{
-  "nome": "Hot Wheels Super Pista Looping",
-  "tipo": "Veículo",
-  "classificacao": "6+",
-  "tamanho": "Grande",
-  "preco": 299.90
-}
-```
-
-**Resposta esperada (HTTP 200 OK):**
-```json
-{
-  "id": 1,
-  "nome": "LEGO Batman Deluxe",
-  "tipo": "Montar",
-  "classificacao": "7+",
-  "tamanho": "Grande",
-  "preco": 199.90
-}
-```
+![PUT Atualizar](imagens/put-atualizar.png)
 
 ---
 
 ### DELETE – Remover por ID
-**URL:** `http://localhost:8080/brinquedos/1` | **Método:** DELETE
+**URL:** `http://localhost:8080/brinquedos/3` | **Método:** DELETE
 
-**Resposta esperada (HTTP 204 No Content):**
-*(sem corpo na resposta)*
+**Resposta (HTTP 204 No Content):**
+
+![DELETE Remover](imagens/delete-remover.png)
 
 ---
 
-### Validação – Campos inválidos
-**Exemplo de envio com erro:**
-```json
-{
-  "nome": "",
-  "tipo": "Boneca",
-  "classificacao": "3+",
-  "tamanho": "Pequeno",
-  "preco": -10
-}
+## Oracle SQL Developer
+
+Após as operações, os dados ficam persistidos na tabela `TDS_TB_Brinquedos`:
+
+```sql
+SELECT * FROM TDS_TB_Brinquedos;
 ```
 
-**Resposta (HTTP 400 Bad Request):**
-```json
-{
-  "nome": "O nome do brinquedo é obrigatório.",
-  "preco": "O preço deve ser um valor positivo."
-}
-```
+![Oracle SQL Developer](imagens/oracle-select.png)
 
 ---
 
