@@ -17,8 +17,7 @@ Desenvolvida com Spring Boot + JPA + Oracle, rodando na porta 8080.
 
 ## Configuração do Spring Initializr
 
-![Spring Initializr](Spring Initializer Configuracao.png)
-
+![Spring Initializr](imagens/Spring%20Initializer%20Configuracao.png)
 ---
 
 ## Como rodar
