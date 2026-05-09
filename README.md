@@ -34,12 +34,6 @@ Desenvolvida com Spring Boot + JPA + Oracle, rodando na porta 8080.
 
 ---
 
-## Exemplos de JSON para Postman
-
-> **Atenção:** No Postman, sempre use **Body → raw → JSON** para os métodos POST e PUT.
-
----
-
 ### POST – Criar brinquedos
 **URL:** `http://localhost:8080/brinquedos` | **Método:** POST
 
