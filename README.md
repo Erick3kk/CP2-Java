@@ -107,26 +107,6 @@ Desenvolvida com Spring Boot + JPA + Oracle, rodando na porta 8080.
 **URL:** `http://localhost:8080/brinquedos` | **Método:** GET
 
 **Resposta esperada (HTTP 200 OK):**
-```json
-[
-  {
-    "id": 1,
-    "nome": "LEGO Batman",
-    "tipo": "Montar",
-    "classificacao": "6+",
-    "tamanho": "Médio",
-    "preco": 149.90
-  },
-  {
-    "id": 2,
-    "nome": "Barbie Fashionista",
-    "tipo": "Boneca",
-    "classificacao": "3+",
-    "tamanho": "Pequeno",
-    "preco": 89.99
-  }
-]
-```
 
 ---
 
@@ -137,7 +117,7 @@ Desenvolvida com Spring Boot + JPA + Oracle, rodando na porta 8080.
 ```json
 {
   "id": 1,
-  "nome": "LEGO Batman",
+  "nome": "LEGO City Polícia",
   "tipo": "Montar",
   "classificacao": "6+",
   "tamanho": "Médio",
